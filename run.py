@@ -11,13 +11,12 @@
 '''
 
 # Player can place 4 ships at coordinates of their choosing
-row1 = ["0", "0", "0", "0", "0"]
-row2 = ["0", "0", "0", "0", "0"]
-row3 = ["0", "0", "0", "0", "0"]
-row4 = ["0", "0", "0", "0", "0"]
-row5 = ["0", "0", "0", "0", "0"]
+row1 = [".", ".", ".", ".", "."]
+row2 = [".", ".", ".", ".", "."]
+row3 = [".", ".", ".", ".", "."]
+row4 = [".", ".", ".", ".", "."]
+row5 = [".", ".", ".", ".", "."]
 
-# ["⬜️","⬜️","⬜️", "⬜️", "⬜️"]
 
 player_board = [row1, row2, row3, row4, row5]
 print(f"{row1}\n{row2}\n{row3}\n{row4}\n{row5}\n")
@@ -47,6 +46,13 @@ vertical = int(position_two)
 player_board[vertical - 1][horizontal - 1] = "@"
 
 
-print(f"{row1}\n{row2}\n{row3}\n{row4}\n{row5}")
+# print(f"{row1}\n{row2}\n{row3}\n{row4}\n{row5}")
+
+# https://stackoverflow.com/questions/11178061/print-list-without-brackets-in-a-single-row
+print(' '.join(row1))
+print(' '.join(row2))
+print(' '.join(row3))
+print(' '.join(row4))
+print(' '.join(row5))
 
 # print(player_board[vertical -1])
