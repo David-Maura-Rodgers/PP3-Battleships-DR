@@ -19,9 +19,20 @@ player_ships = []
 
 player_board = [row1, row2, row3, row4, row5]
 
+# Print board to player
+print(' '.join(row1))
+print(' '.join(row2))
+print(' '.join(row3))
+print(' '.join(row4))
+print(' '.join(row5))
+print("\n")
+
 print("Please select where you want to place your ships\n")
 print("The 1st number is the COLUMN, and the 2nd number is the ROW: \n")
 print("Please only select from numbers 1 to 5\n")
+
+
+# Attempt at While Loop
 
 # Player position input for ships
 position_one = input("Please select number for COLUMN: \n")
