@@ -1,6 +1,7 @@
 # TO RUN CODE: python3 run.py
-# import randint from random
+# from random import randomint
 
+# Player can place 4 ships at coordinates of their choosing
 # Player can place 4 ships at coordinates of their choosing
 row1 = [".", ".", ".", ".", "."]
 row2 = [".", ".", ".", ".", "."]
@@ -18,28 +19,31 @@ print(' '.join(row4))
 print(' '.join(row5))
 print("\n")
 
-print("Please select where you want to place your ships.\n")
-print("Place your ships at four different coordinates on the board\n")
-print("The 1st number is the COLUMN, and the 2nd number is the ROW:")
-print("Please only select from numbers 1 to 5\n")
+print("Place your ships at four different coordinates on the board")
+print("The 1st number is the COLUMN, and the 2nd number is the ROW: \n")
+print("NOTE: Please only select from numbers 1 to 5\n")
+
 
 # While Loop to count number of ships placed by player
 ship_placement = False
 ship_number = 0
+position_one = []
+position_two = []
+position_three = []
+position_four = []
 
-# Attempt at While Loop
 while not ship_placement:
-    position_one = input("Please select number for COLUMN: \n")
-    position_two = input("Please select number for ROW: \n")
+    coord_one = input("Please select number for COLUMN: ")
+    coord_two = input("Please select number for ROW: ")
+    print("\n")
     ship_number += 1
 
     # Convert both position inputs from string to integer
-    horizontal = int(position_one)
-    vertical = int(position_two)
-
     # Updates board with the user input(position variables) and places @ there.
+    horizontal = int(coord_one)
+    vertical = int(coord_two)
     player_board[vertical - 1][horizontal - 1] = "@"
-   
+     
     if ship_number == 4:
         ship_placement = True
         print(' '.join(row1))
@@ -47,4 +51,18 @@ while not ship_placement:
         print(' '.join(row3))
         print(' '.join(row4))
         print(' '.join(row5))
-        print("All ships have been placed!")
+        print("\n")
+        print("All your ships have been placed!")
+
+# For Loop for player coordinates
+# Store player coordinates in two Lists
+player_coord_x = []
+player_coord_y = []
+
+for coord in coord_one:
+    player_coord_x += coord
+print(player_coord_x)
+
+for coord in coord_two:
+    player_coord_y += coord
+print(player_coord_y)
