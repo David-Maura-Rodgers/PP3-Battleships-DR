@@ -2,7 +2,6 @@
 # from random import randomint
 
 # Player can place 4 ships at coordinates of their choosing
-# Player can place 4 ships at coordinates of their choosing
 row1 = [".", ".", ".", ".", "."]
 row2 = [".", ".", ".", ".", "."]
 row3 = [".", ".", ".", ".", "."]
@@ -33,20 +32,52 @@ ship_number = 0
 player_position_x = []
 player_position_y = []
 
+
+def check_computer_guess():
+    '''
+    Function to check computer guess
+    '''
+
+    # TEST DATA TO CHECK THAT IF STATEMENT WORKS
+    com_guess_x = [3, 3, 4, 5]
+    com_guess_y = [2, 3, 2, 5]
+
+    # Check computer guess against player first ship position
+    print(player_position_x[0])
+    print("/n")
+    print(com_guess_x[0])
+    if player_position_x[0] - 1 == com_guess_x[0] - 1:
+        if player_position_y[0] - 1 == com_guess_y[0] - 1:
+            print("Your First Ship has been hit!!!")
+    else:
+        print("You missed . . .")
+
+    print(player_position_x[1])
+    print("/n")
+    print(com_guess_x[1])
+    # Check computer guess against player first ship position
+    if player_position_x[1] - 1 == com_guess_x[1] - 1:
+        if player_position_y[1] - 1 == com_guess_y[1] - 1:
+            print("Your Second Ship has been hit!!!")
+    else:
+        print("You missed . . .")
+
+
+# Main Logic for game
 while not ship_placement:
     input_x = int(input("Please select number for COLUMN: "))
     input_y = int(input("Please select number for ROW: "))
     print("\n")
     ship_number += 1
-    x = player_position_x.append(input_x)
-    y = player_position_y.append(input_y)
-   
+    player_position_x.append(input_x)
+    player_position_y.append(input_y)
+
     # Convert both position inputs from string to integer
     # Updates board with the user input(position variables) and places @ there.
-    horizontal = int(input_x)
-    vertical = int(input_y)
+    horizontal = input_x
+    vertical = input_y
     player_board[vertical - 1][horizontal - 1] = "@"
-
+  
     if ship_number == 4:
         ship_placement = True
         print(' '.join(row1))
@@ -59,8 +90,5 @@ while not ship_placement:
         print(f"Y Coordinates: {player_position_y}")
         print("All your ships have been placed!")
         print("\n")
-
-# player_position_x = [3, 1, 4, 5]
-# player_position_y = [2, 4, 2, 5]
-
-
+   
+check_computer_guess()
