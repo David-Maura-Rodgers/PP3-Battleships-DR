@@ -20,6 +20,8 @@ print("  " + ' '.join(row5))
 print("\n")
 
 print("Place your ships at four different coordinates on the board.")
+print("Com Guess: [3, 1, 4, 5]")
+print("Com Guess: [2, 4, 2, 5]\n")
 print("The 1st number is the COLUMN, and the 2nd number is the ROW: \n")
 print("NOTE: Please only select from numbers 1 to 5\n")
 
@@ -38,29 +40,37 @@ def check_computer_guess():
     Function to check computer guess
     '''
 
-    # TEST DATA TO CHECK THAT IF STATEMENT WORKS
-    com_guess_x = [3, 3, 4, 5]
-    com_guess_y = [2, 3, 2, 5]
+    # STATIC TEST DATA TO CHECK THAT IF STATEMENT WORKS
+    com_guess_x = [3, 1, 4, 5]
+    com_guess_y = [2, 4, 2, 5]
 
     # Check computer guess against player first ship position
-    print(player_position_x[0])
-    print("/n")
-    print(com_guess_x[0])
-    if player_position_x[0] - 1 == com_guess_x[0] - 1:
-        if player_position_y[0] - 1 == com_guess_y[0] - 1:
-            print("Your First Ship has been hit!!!")
+    if player_position_x[0] == com_guess_x[0]:
+        if player_position_y[0] == com_guess_y[0]:
+            print("Your First Ship has been hit!!!\n")
     else:
-        print("You missed . . .")
+        print("Your missile missed its target . . .")
 
-    print(player_position_x[1])
-    print("/n")
-    print(com_guess_x[1])
-    # Check computer guess against player first ship position
-    if player_position_x[1] - 1 == com_guess_x[1] - 1:
-        if player_position_y[1] - 1 == com_guess_y[1] - 1:
-            print("Your Second Ship has been hit!!!")
+    # Check computer guess against player second ship position
+    if player_position_x[1] == com_guess_x[1]:
+        if player_position_y[1] == com_guess_y[1]:
+            print("Your Second Ship has been hit!!!\n")
     else:
-        print("You missed . . .")
+        print("Your missile missed its target . . .")
+
+    # Check computer guess against player third ship position
+    if player_position_x[2] == com_guess_x[2]:
+        if player_position_y[2] == com_guess_y[2]:
+            print("Your Third Ship has been hit!!!\n")
+    else:
+        print("Your missile missed its target . . .")
+
+    # Check computer guess against player fourth ship position
+    if player_position_x[3] == com_guess_x[3]:
+        if player_position_y[3] == com_guess_y[3]:
+            print("Your Fourth Ship has been hit!!!\n")
+    else:
+        print("Your missile missed its target . . .")
 
 
 # Main Logic for game
@@ -77,7 +87,7 @@ while not ship_placement:
     horizontal = input_x
     vertical = input_y
     player_board[vertical - 1][horizontal - 1] = "@"
-  
+
     if ship_number == 4:
         ship_placement = True
         print(' '.join(row1))
@@ -90,5 +100,5 @@ while not ship_placement:
         print(f"Y Coordinates: {player_position_y}")
         print("All your ships have been placed!")
         print("\n")
-   
+
 check_computer_guess()
