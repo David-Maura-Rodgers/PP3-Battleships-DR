@@ -30,18 +30,17 @@ ship_number = 0
 
 # https://stackoverflow.com/questions/4435169/how-do-i-append-one-string-to-another-in-python#comment88685663_4435169
 # Lists to hold cordinates for player's x and y coordinates
-position_x = []
-position_y = []
+player_position_x = []
+player_position_y = []
 
 while not ship_placement:
     input_x = int(input("Please select number for COLUMN: "))
     input_y = int(input("Please select number for ROW: "))
+    print("\n")
     ship_number += 1
-    x = position_x.append(input_x)
-    y = position_y.append(input_y)
-    print(position_x)
-    print(position_y)
-
+    x = player_position_x.append(input_x)
+    y = player_position_y.append(input_y)
+   
     # Convert both position inputs from string to integer
     # Updates board with the user input(position variables) and places @ there.
     horizontal = int(input_x)
@@ -56,6 +55,12 @@ while not ship_placement:
         print(' '.join(row4))
         print(' '.join(row5))
         print("\n")
+        print(f"X Coordinates: {player_position_x}")
+        print(f"Y Coordinates: {player_position_y}")
         print("All your ships have been placed!")
         print("\n")
+
+# player_position_x = [3, 1, 4, 5]
+# player_position_y = [2, 4, 2, 5]
+
 
