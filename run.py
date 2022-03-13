@@ -1,9 +1,9 @@
 # You can delete these comments, but do not change the name of this file
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
-
 # TO RUN CODE: python3 run.py
 
 # from random import randomint
+
 
 # Player can place 4 ships at coordinates of their choosing
 row1 = [".", ".", ".", ".", "."]
@@ -61,7 +61,7 @@ def check_computer_guess():
         else:
             print(player_lives)
             print("Your missile missed its target . . .")
-      
+
         if player_position_x[1] == com_guess_x[1]:
             if player_position_y[1] == com_guess_y[1]:
                 player_lives -= 1
@@ -96,7 +96,7 @@ def check_computer_guess():
             should_continue = False
 
 
-# Main Logic for game
+# Player ship placement (Main Logic for game???)
 while not ship_placement:
     input_x = int(input("Please select number for COLUMN: "))
     input_y = int(input("Please select number for ROW: "))
