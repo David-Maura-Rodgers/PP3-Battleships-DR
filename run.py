@@ -1,4 +1,8 @@
+# You can delete these comments, but do not change the name of this file
+# Write your code to expect a terminal of 80 characters wide and 24 rows high
+
 # TO RUN CODE: python3 run.py
+
 # from random import randomint
 
 # Player can place 4 ships at coordinates of their choosing
@@ -36,54 +40,61 @@ player_position_y = []
 
 def check_computer_guess():
     '''
-    Function to check computer guess against
+    Function to check computer guess against player's ships on board
     '''
-    # STATIC TEST DATA TO CHECK THAT IF STATEMENT WORKS
+    # Check computer guess against player first ship position
+    # Check computer guess against player second ship position
+    # # STATIC TEST DATA TO CHECK THAT IF STATEMENT WORKS
     com_guess_x = [3, 1, 4, 5]
     com_guess_y = [2, 4, 2, 5]
 
-    # player lives
+    # Variables
     player_lives = 4
+    should_continue = True
 
-    # Check computer guess against player first ship position
-    if player_position_x[0] == com_guess_x[0]:
-        if player_position_y[0] == com_guess_y[0]:
-            player_lives -= 1
+    while should_continue:
+        if player_position_x[0] == com_guess_x[0]:
+            if player_position_y[0] == com_guess_y[0]:
+                player_lives -= 1
+                print(player_lives)
+                print("Your First Ship has been hit!!!\n")
+        else:
             print(player_lives)
-            print("Your First Ship has been hit!!!\n")
-    else:
-        print("Your missile missed its target . . .")
-
-    # Check computer guess against player second ship position
-    if player_position_x[1] == com_guess_x[1]:
-        if player_position_y[1] == com_guess_y[1]:
-            player_lives -= 1
+            print("Your missile missed its target . . .")
+      
+        if player_position_x[1] == com_guess_x[1]:
+            if player_position_y[1] == com_guess_y[1]:
+                player_lives -= 1
+                print(player_lives)
+                print("Your Second Ship has been hit!!!\n")
+        else:
             print(player_lives)
-            print("Your Second Ship has been hit!!!\n")
-    else:
-        print("Your missile missed its target . . .")
+            print("Your missile missed its target . . .")
 
     # Check computer guess against player third ship position
-    if player_position_x[2] == com_guess_x[2]:
-        if player_position_y[2] == com_guess_y[2]:
-            player_lives -= 1
+        if player_position_x[2] == com_guess_x[2]:
+            if player_position_y[2] == com_guess_y[2]:
+                player_lives -= 1
+                print(player_lives)
+                print("Your Third Ship has been hit!!!\n")
+        else:
             print(player_lives)
-            print("Your Third Ship has been hit!!!\n")
-    else:
-        print("Your missile missed its target . . .")
+            print("Your missile missed its target . . .")
 
     # Check computer guess against player fourth ship position
-    if player_position_x[3] == com_guess_x[3]:
-        if player_position_y[3] == com_guess_y[3]:
-            player_lives -= 1
+        if player_position_x[3] == com_guess_x[3]:
+            if player_position_y[3] == com_guess_y[3]:
+                player_lives -= 1
+                print(player_lives)
+                print("Your Fourth Ship has been hit!!!\n")
+        else:
             print(player_lives)
-            print("Your Fourth Ship has been hit!!!\n")
-    else:
-        print("Your missile missed its target . . .")
+            print("Your missile missed its target . . .")
 
-    if player_lives == 0:
-        print("All your ships have been destroyed")
-   
+        if player_lives == 0:
+            print("All your ships have been destroyed")
+            should_continue = False
+
 
 # Main Logic for game
 while not ship_placement:
@@ -92,9 +103,9 @@ while not ship_placement:
     print("\n")
     player_ship_number += 1
     player_position_x.append(input_x)
-    print(player_position_x)
+    # print(player_position_x)
     player_position_y.append(input_y)
-    print(player_position_y)
+    # print(player_position_y)
 
     # Convert both position inputs from string to integer
     # Updates board with the user input(position variables) and places @ there.
