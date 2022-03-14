@@ -1,4 +1,3 @@
-# You can delete these comments, but do not change the name of this file
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
 # TO RUN CODE: python3 run.py
 
@@ -144,7 +143,7 @@ missile_y = int(input("Select COLUMN for Y coordinates "))
 
 
 # --- CHECK PLAYER GUESS AGAINST COM SHIP POSITIONS --- \\
-def user_guess(missile_x, missile_y):
+def check_player_guess(missile_x, missile_y):
     '''
     Function to check computer guess against player's ships on board
     '''
@@ -187,5 +186,5 @@ def user_guess(missile_x, missile_y):
             should_continue = False
 
 
-user_guess(missile_x, missile_y)
+check_player_guess(missile_x, missile_y)
 check_computer_guess()
