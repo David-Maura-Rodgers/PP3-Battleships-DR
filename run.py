@@ -2,8 +2,7 @@
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
 # TO RUN CODE: python3 run.py
 
-# from random import randomint
-
+import random
 
 # Player can place 4 ships at coordinates of their choosing
 row1 = [".", ".", ".", ".", "."]
@@ -127,4 +126,66 @@ while not ship_placement:
         print("All your ships have been placed!")
         print("\n")
 
+
+# Create random sample
+com_position_x = random.sample(range(1, 6), 4)
+com_position_y = random.sample(range(1, 6), 4)
+print(com_position_x)
+print(com_position_y)
+
+# print(f"Com ship X Coordinates: {com_position_x[0]}")
+# print(f"Com ship Y Coordinates: {com_position_y[0]}\n")
+
+# com_lives = 4
+
+print("TIME TO FIRE YOU MISSILE AT THE ENEMY!\n")
+missile_x = int(input("Select COLUMN for X coordinates "))
+missile_y = int(input("Select COLUMN for Y coordinates "))
+
+
+# --- CHECK PLAYER GUESS AGAINST COM SHIP POSITIONS --- \\
+def user_guess(missile_x, missile_y):
+    '''
+    Function to check computer guess against player's ships on board
+    '''
+    com_lives = 4
+    should_continue = True
+    while should_continue:
+        missile_x = int(input("Select COLUMN for X coordinates "))
+        missile_y = int(input("Select COLUMN for Y coordinates "))
+        print("\n")
+        if missile_x == com_position_x[0]:
+            if missile_y == com_position_y[0]:
+                com_lives -= 1
+                print("You have hit the ENEMY'S first ship!!!\n")
+                print(f"Enemmy Ships Left: {com_lives}\n")
+      
+        if missile_x == com_position_x[1]:
+            if missile_y == com_position_y[1]:
+                com_lives -= 1
+                print("You have hit the ENEMY'S second ship!!!\n")
+                print(f"Enemmy Ships Left: {com_lives}\n")
+
+        if missile_x == com_position_x[2]:
+            if missile_y == com_position_y[2]:
+                com_lives -= 1
+                print("You have hit the ENEMY'S third ship!!!\n")
+                print(f"Enemmy Ships Left: {com_lives}\n")
+
+        if missile_x == com_position_x[3]:
+            if missile_y == com_position_y[3]:
+                com_lives -= 1
+                print("You have hit the ENEMY'S fourth ship!!!\n")
+                print(f"Enemmy Ships Left: {com_lives}\n")
+        else:
+            print("Your missile missed the target . . .")
+            print(f"Enemmy Ships Left: {com_lives}\n")
+
+        if com_lives == 0:
+            print("All The ENEMY'S ships have been destroyed")
+            print("You WIN !!!!!!!!!!!!!")
+            should_continue = False
+
+
+user_guess(missile_x, missile_y)
 check_computer_guess()
