@@ -130,8 +130,8 @@ while not ship_placement:
 # Create random sample
 com_position_x = random.sample(range(1, 6), 4)
 com_position_y = random.sample(range(1, 6), 4)
-print(com_position_x)
-print(com_position_y)
+# print(com_position_x)
+# print(com_position_y)
 
 # print(f"Com ship X Coordinates: {com_position_x[0]}")
 # print(f"Com ship Y Coordinates: {com_position_y[0]}\n")
