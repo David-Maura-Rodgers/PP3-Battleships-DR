@@ -10,8 +10,9 @@ com_lives = 4
 player_lives = 4
 player_missile_x = None
 player_missile_y = None
+game_over = False
 
-# RANDOM ENEMY SHIP POSITION
+# RANDOM ENEMY SHIP POSITION IN rand_enemy_ships Function
 com_position_x = random.sample(range(1, 6), 4)
 com_position_y = random.sample(range(1, 6), 4)
 
@@ -19,17 +20,12 @@ com_position_y = random.sample(range(1, 6), 4)
 enemy_missile_x = random.sample(range(1, 6), 1)
 enemy_missile_y = random.sample(range(1, 6), 1)
 
-ship_placement = False
-player_ship_number = 0
-
 
 # ------ STARTS THE GAME ------------- \\
 def play_game():
     '''
     Function: Starts the game: prints board to player etc
     '''
-    # global player_position_x = []
-    # global player_position_y = []
     ship_placement = False
     player_ship_number = 0
     print("Place your ships at four different coordinates on the board.")
@@ -55,6 +51,7 @@ def play_game():
     while not ship_placement:
         input_x = int(input("Please select number for COLUMN: "))
         input_y = int(input("Please select number for ROW: "))
+        print("         - - - - - - -        ")
         player_ship_number += 1
         player_position_x.append(input_x)
         player_position_y.append(input_y)
@@ -84,7 +81,7 @@ def play_game():
 # --- CREATE RANDOM COM SHIP COORDINATES ------ //
 def rand_enemy_ships():
     '''
-    Function to check computer guess against player's ships on board
+    Function to place enemy ship coordinates at random
     '''
     # Create random sample of computer ship positions
     global com_position_x
@@ -176,15 +173,36 @@ def check_com_missile(enemy_missile_x, enemy_missile_y):
             print("All your ships have been destroyed!!!")
             print("You Lose!!!")
             should_continue = False  
-        # else:
-        #     print("ENEMY missile missed its target . . .")
-        #     print(f"Player Ships Left: {player_lives}")
+        else:
+            print("\n")
+            print("ENEMY missile missed its target . . .")
+            print(f"Player Ships Left: {player_lives}")
 
         return enemy_missile_x
         return enemy_missile_y
 
 
+def end_game():
+    '''
+    FUNCTION: Generate random missile for computer
+    '''
+    global com_lives
+    global player_lives
+    global game_over
+    while not game_over:
+        if com_lives >= 1 and player_lives >= 1:
+            check_player_missile(player_missile_x, player_missile_y)
+            check_com_missile(enemy_missile_x, enemy_missile_y)
+        elif com_lives == 0:
+            print("GAME OVER: You Win!!!!!")
+            game_over = True
+        elif player_lives == 0:
+            print("GAME OVER: You lose")
+            game_over = True
+    
+
 play_game()
 rand_enemy_ships()
 check_player_missile(player_missile_x, player_missile_y)
 check_com_missile(enemy_missile_x, enemy_missile_y)
+end_game()
