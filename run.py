@@ -28,6 +28,7 @@ def play_game():
     '''
     ship_placement = False
     player_ship_number = 0
+    print("\n")
     print("Place your ships at four different coordinates on the board.")
     print("The 1st number is the COLUMN, and the 2nd number is the ROW: \n")
     print("NOTE: Please only select from numbers 1 to 5\n")
@@ -129,8 +130,11 @@ def check_player_missile(player_missile_x, player_missile_y):
             print("You WIN !!!!!!!!!!!!!")
             should_continue = False
         # else:
+        #     print("\n")
         #     print("Your missile missed the target . . .")
         #     print(f"Enemy Ships Left: {com_lives}\n")
+        #     print("\n")
+
         return player_missile_x
         return player_missile_y
 
@@ -148,12 +152,12 @@ def check_com_missile(enemy_missile_x, enemy_missile_y):
         enemy_missile_y = random.sample(range(1, 6), 1)
         print(f"Enemy Missile Strike X: {enemy_missile_x}")
         print(f"Enemy Missile Strike Y: {enemy_missile_y}")
+        print("\n")
         if player_position_x[0] == enemy_missile_x[0]:
             if player_position_y[0] == enemy_missile_y[0]:
                 player_lives -= 1
                 print("Your First Ship has been hit!!!\n")
                 print(f"Player Ships Left: {player_lives}")
-
         if player_position_x[1] == enemy_missile_x[0]:
             if player_position_y[1] == enemy_missile_y[0]:
                 player_lives -= 1
@@ -173,10 +177,11 @@ def check_com_missile(enemy_missile_x, enemy_missile_y):
             print("All your ships have been destroyed!!!")
             print("You Lose!!!")
             should_continue = False  
-        else:
-            print("\n")
-            print("ENEMY missile missed its target . . .")
-            print(f"Player Ships Left: {player_lives}")
+        # else:
+        #     print("\n")
+        #     print("ENEMY missile missed its target . . .")
+        #     print(f"Player Ships Left: {player_lives}")
+        #     print("\n")
 
         return enemy_missile_x
         return enemy_missile_y
@@ -194,12 +199,14 @@ def end_game():
             check_player_missile(player_missile_x, player_missile_y)
             check_com_missile(enemy_missile_x, enemy_missile_y)
         elif com_lives == 0:
+            print("\n")
             print("GAME OVER: You Win!!!!!")
             game_over = True
         elif player_lives == 0:
+            print("\n")
             print("GAME OVER: You lose")
             game_over = True
-  
+
 
 play_game()
 rand_enemy_ships()
@@ -229,4 +236,6 @@ how-to-delete-last-item-in-list
 
 https://www.codegrepper.com/code-examples/
 python/how+to+generate+unique+random+numbers+in+python
+
+check player missile ELSE statement doesn't work as intended
 '''
