@@ -8,9 +8,8 @@ player_position_x = []
 player_position_y = []
 com_lives = 4
 player_lives = 4
-player_missile_x = int(input("Select ENEMY SHIP for X coordinates "))
-player_missile_y = int(input("Select ENEMY SHIP for Y coordinates "))
-# print("ABOVE IS A BUG . . . \n")
+player_missile_x = None
+player_missile_y = None
 
 # RANDOM ENEMY SHIP POSITION
 com_position_x = random.sample(range(1, 6), 4)
