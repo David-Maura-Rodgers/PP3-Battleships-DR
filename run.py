@@ -109,31 +109,45 @@ def check_player_missile(player_missile_x, player_missile_y):
             if player_missile_y == com_position_y[0]:
                 com_lives -= 1
                 print("You have hit the ENEMY'S first ship!!!\n")
-                print(f"Enemy Ships Left: {com_lives}\n") 
+                print(f"Enemy Ships Left: {com_lives}\n")
+            else:
+                print("\n")
+                print("Your missile missed the target . . .")
+                print(f"Enemy Ships Left: {com_lives}\n")
+                print("\n")
+
         if player_missile_x == com_position_x[1]:
             if player_missile_y == com_position_y[1]:
                 com_lives -= 1
                 print("You have hit the ENEMY'S second ship!!!\n")
                 print(f"Enemy Ships Left: {com_lives}\n")
+            else:
+                print("\n")
+                print("Your missile missed the target . . .")
+                print(f"Enemy Ships Left: {com_lives}\n")
+                print("\n")
+        
         if player_missile_x == com_position_x[2]:
             if player_missile_y == com_position_y[2]:
                 com_lives -= 1
                 print("You have hit the ENEMY'S third ship!!!\n")
                 print(f"Enemy Ships Left: {com_lives}\n")
+            else:
+                print("\n")
+                print("Your missile missed the target . . .")
+                print(f"Enemy Ships Left: {com_lives}\n")
+                print("\n")
+        
         if player_missile_x == com_position_x[3]:
             if player_missile_y == com_position_y[3]:
                 com_lives -= 1
                 print("You have hit the ENEMY'S fourth ship!!!\n")
                 print(f"Enemy Ships Left: {com_lives}\n")
-        if com_lives == 0:
-            print("All The ENEMY'S ships have been destroyed")
-            print("You WIN !!!!!!!!!!!!!")
-            should_continue = False
-        # else:
-        #     print("\n")
-        #     print("Your missile missed the target . . .")
-        #     print(f"Enemy Ships Left: {com_lives}\n")
-        #     print("\n")
+            else:
+                print("\n")
+                print("Your missile missed the target . . .")
+                print(f"Enemy Ships Left: {com_lives}\n")
+                print("\n")
 
         return player_missile_x
         return player_missile_y
@@ -158,30 +172,44 @@ def check_com_missile(enemy_missile_x, enemy_missile_y):
                 player_lives -= 1
                 print("Your First Ship has been hit!!!\n")
                 print(f"Player Ships Left: {player_lives}")
+            else:
+                print("\n")
+                print("ENEMY missile missed its target . . .")
+                print(f"Player Ships Left: {player_lives}")
+                print("\n")
+            
         if player_position_x[1] == enemy_missile_x[0]:
             if player_position_y[1] == enemy_missile_y[0]:
                 player_lives -= 1
                 print("Your Second Ship has been hit!!!\n")
                 print(f"Player Ships Left: {player_lives}")
+            else:
+                print("\n")
+                print("ENEMY missile missed its target . . .")
+                print(f"Player Ships Left: {player_lives}")
+                print("\n")
+
         if player_position_x[2] == enemy_missile_x[0]:
             if player_position_y[2] == enemy_missile_y[0]:
                 player_lives -= 1
                 print("Your Third Ship has been hit!!!\n")
                 print(f"Player Ships Left: {player_lives}")
+            else:
+                print("\n")
+                print("ENEMY missile missed its target . . .")
+                print(f"Player Ships Left: {player_lives}")
+                print("\n")
+
         if player_position_x[3] == enemy_missile_x[0]:
             if player_position_y[3] == enemy_missile_y[0]:
                 player_lives -= 1
                 print("Your Fourth Ship has been hit!!!\n")
                 print(f"Player Ships Left: {player_lives}")
-        if player_lives == 0:
-            print("All your ships have been destroyed!!!")
-            print("You Lose!!!")
-            should_continue = False  
-        # else:
-        #     print("\n")
-        #     print("ENEMY missile missed its target . . .")
-        #     print(f"Player Ships Left: {player_lives}")
-        #     print("\n")
+            else:
+                print("\n")
+                print("ENEMY missile missed its target . . .")
+                print(f"Player Ships Left: {player_lives}")
+                print("\n")
 
         return enemy_missile_x
         return enemy_missile_y
@@ -200,10 +228,12 @@ def end_game():
             check_com_missile(enemy_missile_x, enemy_missile_y)
         elif com_lives == 0:
             print("\n")
+            print("All The ENEMY'S ships have been destroyed")
             print("GAME OVER: You Win!!!!!")
             game_over = True
         elif player_lives == 0:
             print("\n")
+            print("All your ships have been destroyed!!!")
             print("GAME OVER: You lose")
             game_over = True
 
@@ -213,6 +243,7 @@ rand_enemy_ships()
 check_player_missile(player_missile_x, player_missile_y)
 check_com_missile(enemy_missile_x, enemy_missile_y)
 end_game()
+# play_again()
 
 
 # --------- BUGS AND SOURCES ------------- \\
