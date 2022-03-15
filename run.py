@@ -199,10 +199,34 @@ def end_game():
         elif player_lives == 0:
             print("GAME OVER: You lose")
             game_over = True
-    
+  
 
 play_game()
 rand_enemy_ships()
 check_player_missile(player_missile_x, player_missile_y)
 check_com_missile(enemy_missile_x, enemy_missile_y)
 end_game()
+
+
+# --------- BUGS AND SOURCES ------------- \\
+'''https://www.codegrepper.com/code-examples/
+python/how+to+generate+unique+random+numbers+in+python
+
+BUG THAT ASKS FOR FIRST INPUT TWICE
+i used None as a variable on player_missile variable to fix bug
+
+https://stackoverflow.com/questions/11178061/
+print-list-without-brackets-in-a-single-row
+
+https://stackoverflow.com/questions/4435169
+/how-do-i-append-one-string-to-another-in-python#comment88685663_4435169
+
+https://stackoverflow.com/questions/28036309/
+typeerror-list-object-cannot-be-interpreted-as-an-integer
+
+https://stackoverflow.com/questions/18169965/
+how-to-delete-last-item-in-list
+
+https://www.codegrepper.com/code-examples/
+python/how+to+generate+unique+random+numbers+in+python
+'''
