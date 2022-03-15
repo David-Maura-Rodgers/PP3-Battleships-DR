@@ -3,7 +3,7 @@
 
 import random
 
-# GLOBAL SCOPE NEEDED FOR ALL FUNCTIONS TO ACCESS THESE VARIABLES
+# --- GLOBAL SCOPE VARIABLES --- \\
 player_position_x = []
 player_position_y = []
 com_lives = 4
@@ -12,16 +12,16 @@ player_missile_x = None
 player_missile_y = None
 game_over = False
 
-# RANDOM ENEMY SHIP POSITION IN rand_enemy_ships Function
+# --- RANDOM ENEMY SHIP POSITION IN rand_enemy_ships Function --- \\
 com_position_x = random.sample(range(1, 6), 4)
 com_position_y = random.sample(range(1, 6), 4)
 
-# RANDOM ENEMY SHIP MISSILE GUESS
+# --- RANDOM ENEMY SHIP MISSILE GUESS --- \\
 enemy_missile_x = random.sample(range(1, 6), 1)
 enemy_missile_y = random.sample(range(1, 6), 1)
 
 
-# ------ STARTS THE GAME ------------- \\
+# --- STARTS THE GAME --- \\
 def play_game():
     '''
     Function: Starts the game: prints board to player etc
@@ -79,7 +79,7 @@ def play_game():
             return player_position_y
 
 
-# --- CREATE RANDOM COM SHIP COORDINATES ------ //
+# --- CREATE RANDOM COM SHIP COORDINATES --- \\
 def rand_enemy_ships():
     '''
     Function to place enemy ship coordinates at random
@@ -92,8 +92,7 @@ def rand_enemy_ships():
     print(f"Com ship Y Coordinates: {com_position_y}\n")
 
 
-# --- ASK PLAYER TO SHOOT MISSILE AT ENEMY POSITIONS --- //
-# --- CHECK PLAYER MISSILE AGAINST COM SHIP POSITIONS --- \\
+# --- CHECK THAT PLAYER MISSILE HAS HIT COM SHIP POSITION --- \\
 def check_player_missile(player_missile_x, player_missile_y):
     '''
     Function to check computer guess against player's ships on board
@@ -153,7 +152,7 @@ def check_player_missile(player_missile_x, player_missile_y):
         return player_missile_y
 
 
-# --- COM MISSILE IS RANDOMLY GENERATED EACH ITERATION OF LOOP
+# --- CHECK THAT ENEMY MISSILE HAS HIT PLAYER SHIP POSITION --- \\
 def check_com_missile(enemy_missile_x, enemy_missile_y):
     '''
     FUNCTION: Generate random missile for computer
@@ -215,6 +214,7 @@ def check_com_missile(enemy_missile_x, enemy_missile_y):
         return enemy_missile_y
 
 
+#  --- CHECK LIVES FOR PLAYER AND COM TO SEE WHO REACHES 0 --- \\
 def end_game():
     '''
     FUNCTION: Generate random missile for computer
